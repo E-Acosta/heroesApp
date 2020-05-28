@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">My Hero</string>
+    <string name="nombre">Name</string>
+    <string name="backnombre">Full nombre</string>
+    <string name="editorial">Published by</string>
+    <string name="inclinacion">Inclinacion</string>
+</resources>
