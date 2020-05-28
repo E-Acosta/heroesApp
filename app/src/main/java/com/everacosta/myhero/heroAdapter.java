@@ -1,5 +1,6 @@
 package com.everacosta.myhero;
 
+import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.widget.RecyclerView;
@@ -9,12 +10,16 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+
 import java.util.ArrayList;
 
 public class heroAdapter extends RecyclerView.Adapter<heroAdapter.ViewHolderSuperHero> {
     ArrayList<SuperHero> SuperHeroesList;
+    Context context;
 
-    public heroAdapter(ArrayList<SuperHero> superHeroesList) {
+    public heroAdapter(Context context, ArrayList<SuperHero> superHeroesList) {
+        this.context=context;
         SuperHeroesList = superHeroesList;
     }
 
@@ -31,6 +36,9 @@ public class heroAdapter extends RecyclerView.Adapter<heroAdapter.ViewHolderSupe
         viewHolderSuperHero.tvFullName.setText("secret identity: \n"+SuperHeroesList.get(i).getBiography().getFullName());
         viewHolderSuperHero.tvAlignment.setText("Is: "+SuperHeroesList.get(i).getBiography().getAlignment());
         viewHolderSuperHero.tvPublisher.setText("Published by: \n"+SuperHeroesList.get(i).getBiography().getPublisher());
+        Glide.with(context)
+                .load(SuperHeroesList.get(i).getImage().getUrl())
+        .into(viewHolderSuperHero.foto);
     }
 
     @Override

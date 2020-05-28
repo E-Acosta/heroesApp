@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
         ProgressBar progressBar = findViewById(R.id.progressBar);
         RecyclerView recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        heroAdapter adapter = new heroAdapter(superHeroes);
+        heroAdapter adapter = new heroAdapter(this,superHeroes);
         recyclerView.setAdapter(adapter);
         if(superHeroes.size()>5){
             Log.i(MYTAG,"Si lo lleno");
